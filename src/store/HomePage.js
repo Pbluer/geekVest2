@@ -13,7 +13,9 @@ const homePage = new Vuex.Store({
         price: '10,20',
         description: 'Camisa marvel de polieste e algodão',
         tineDescription: 'Camisa marvel de polieste e algodão',
-        link:'buyTshirt'
+        link:'buyTshirt',
+        size: ['p','m','g' ],
+        color: ['vermelho']
       },
       {
         id:'00002',

@@ -6,6 +6,15 @@
         <h1> {{ item.name }} </h1>
         <h3>R$ {{item.price }} </h3>
       </div>
+      
+      <div class="containerSize">
+        <h2>Tamanho:</h2>        
+        <div v-for="size in item.size" :key="size">
+          <label :for="size"> {{size}} </label>
+          <input type="radio" :value="size" name="color" v-model="sizeSelected">         
+        </div>          
+      </div>
+     
       <div class="secondInformation">
         <button id="cart">
           <v-icon>mdi-cart-plus</v-icon>
@@ -43,23 +52,26 @@ export default {
   },
   data: () => ({
     descricaoMobile: false,
-    item: {      
+    item: {
       image:'',
       name: '',
       price: '',      
-      description: '',      
-    }
+      description: '',
+      size:''      
+    },
+    sizeSelected: ''
   }),
   methods: {
     loadItem(){
       let item = allShirt.getters.getItem( this.$route.params.id )
       
-      var { image, name, price, fullDescription } = item[0]
-  
+      var { image, name, price, fullDescription, size } = item[0]
+      console.log(size)
       this.item.image = '../' + image
       this.item.name =  name
       this.item.price = price
       this.item.description = fullDescription
+      this.item.size = size
     }
   }
 }
@@ -97,6 +109,18 @@ export default {
         font-size: 1.5rem;
       }
 
+    }
+
+    .containerSize {
+      width: 300px;
+      display: flex;
+      padding-right: 5vw ;   
+
+      h2 {
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }      
+      div { margin: 5px; }
     }
 
     .secondInformation {

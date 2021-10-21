@@ -14,6 +14,7 @@ const allShirt = new Vuex.Store({
         tineDescription: 'Camisa marvel de polieste e algodão',
         fullDescription: 'Camisa marvel de polieste e algodão',
         link:'buyTshirt',
+        size: ['P','M','G']
       },
       {
         id:'00002',
@@ -22,7 +23,8 @@ const allShirt = new Vuex.Store({
         price: '20,20',
         tineDescription: 'Description',
         fullDescription: 'Description',
-        link:'buyTshirt'
+        link:'buyTshirt',
+        size: ['P','M','G']
       },
       {
         id:'00003',
@@ -31,7 +33,8 @@ const allShirt = new Vuex.Store({
         price: '30,20',
         tineDescription: 'Description',
         fullDescription: 'Description',
-        link:'buyTshirt'
+        link:'buyTshirt',
+        size: ['P','M','G']
       },
       {
         id:'00004',
@@ -40,7 +43,8 @@ const allShirt = new Vuex.Store({
         price: '40,20',
         tineDescription: 'Description',
         fullDescription: 'Description',
-        link:'buyTshirt'
+        link:'buyTshirt',
+        size: ['P','M','G']
       },
     ],    
   },
