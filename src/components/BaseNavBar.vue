@@ -27,7 +27,7 @@
                 <v-list-item-icon>
                   <v-icon> mdi-tshirt-crew</v-icon>
                 </v-list-item-icon>
-                 <router-link to="/">Camisa</router-link>
+                 <router-link to="camisa">Camisa</router-link>
               </v-list-item>
             </v-list-item-group>
           </v-list>

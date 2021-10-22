@@ -1,13 +1,12 @@
 <template>
-  <div class="home">
+ <div class="camisa">
     <div class="container">
       <div class="destaque">
-        <h1>DESTAQUE</h1>
         <div class="grid">
-          <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in featuredItem" :key="item.nome">            
-            <img :src="item.image" :alt="item.name">
-            <h3> R$ {{ item.price }} </h3>
-            <p>{{ item.tineDescription }}</p>                 
+          <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in allShirt" :key="item.nome">            
+            <img :src="item.image" :alt="item.nome">
+            <h3> R$ {{ item.preco }} </h3>
+            <p>{{ item.pequenaDescricao }}</p>                 
           </router-link>
         </div>
       </div>
@@ -16,22 +15,23 @@
 </template>
 
 <script>
-  import homePage from '@/store/HomePage.js' 
 
-  export default {
-    name: 'Home',
-    components: {
-    },
-    data: () => ({
-    }),
-    methods:{
-    },
-    computed: {
-      featuredItem: () => homePage.state.items
-    }
+import allShirt from '@/store/AllShirt.js' 
 
+export default {
+  name: 'camisa',
+  data: () => ({
+    loading: false
+  }),
+  methods: {
+    
+  },
+  computed: {
+    allShirt: () => allShirt.state.items
   }
+}
 </script>
+
 
 <style lang="less" scoped>
 

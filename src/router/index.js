@@ -11,9 +11,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/camisa/:id',
+    path: '/camisa',
     name: 'buyTshirt',
-    component: () => import('../views/Buy/Buy.vue')
+    component: () => import('../views/Camisa/Camisa.vue'),
+  },
+  {
+    path: '/camisa/:id',
+    name: 'camisaSelecionada',
+    component: () => import('../views/Buy/Buy.vue'),
   }
 ]
 

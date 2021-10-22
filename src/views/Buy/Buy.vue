@@ -1,10 +1,11 @@
 <template>
   <div class="buy">
     <div class="container">
+      <h1> {{ item.name }} </h1>
+
       <img :src="item.image" :alt=" item.name ">
       <div class="primaryInformation">
-        <h1> {{ item.name }} </h1>
-        <h3>R$ {{item.price }} </h3>
+        <h3>R$ {{item.price }} <span>ou {{ item.parcela }}</span> </h3>
       </div>
       
       <div class="containerSize">
@@ -56,6 +57,7 @@ export default {
       image:'',
       name: '',
       price: '',      
+      parcela: '',      
       description: '',
       size:''      
     },
@@ -65,12 +67,13 @@ export default {
     loadItem(){
       let item = allShirt.getters.getItem( this.$route.params.id )
       
-      var { image, name, price, fullDescription, size } = item[0]
-      console.log(size)
+      var { image, nome, preco, parcela, descricao, size } = item[0]
+
       this.item.image = '../' + image
-      this.item.name =  name
-      this.item.price = price
-      this.item.description = fullDescription
+      this.item.name =  nome
+      this.item.price = preco
+      this.item.parcela = parcela
+      this.item.description = descricao
       this.item.size = size
     }
   }
@@ -85,6 +88,11 @@ export default {
     flex-direction: column;
     padding: 20px;
 
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
     img {
       width: 80%;
       border-radius: 15px;
@@ -96,9 +104,10 @@ export default {
     .primaryInformation {
       margin-top: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       width: 300px;
       align-items: center;
+      margin-bottom: 10px;
 
       h1 {
         font-size: 1.3rem;
@@ -107,6 +116,11 @@ export default {
       h3 {
         color: green;
         font-size: 1.5rem;
+
+        span {
+          color: black;
+          font-size: 1rem;
+        }
       }
 
     }
@@ -151,6 +165,7 @@ export default {
     }
 
   }
+
   .containerDescricaoMobile {
     display: flex;
     flex-direction: column;
