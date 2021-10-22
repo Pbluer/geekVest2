@@ -4,7 +4,11 @@
       <router-link to="/">
         <img  src="@/assets/logo.png" alt="GeekVest" id="logo" />
       </router-link>
-      <div class="nav">
+      <div class="nav">    
+                  
+                
+      <router-link to="/carrinho" class="carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
+          
 
         <ul class="menuDesktop">
           <li><router-link to="/">Inicio</router-link></li>
@@ -16,7 +20,9 @@
         <v-navigation-drawer class="menuMobile" v-model="drawer" absolute temporary dark>
           <v-list nav dense>
             <v-list-item-group v-model="group">
-              <v-list-item>
+             
+
+              <v-list-item>            
                 <v-list-item-icon>
                   <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
@@ -40,7 +46,9 @@
 </template>
 
 <script>
+
 export default {
+  name: 'navBar',
   data: () => ({
     drawer: false,
     group: null,
@@ -64,6 +72,15 @@ export default {
     width: 80px;
   }
 
+  .carrinho {
+    color: white;
+    text-decoration: none;
+
+    i {
+      color: white;
+    }
+  }
+
   button {
     display: none;
   }
@@ -72,6 +89,7 @@ export default {
 .menuMobile {
   display: none;
 
+ 
   a {
     text-decoration: none;
     color: #fff;

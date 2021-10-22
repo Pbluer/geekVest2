@@ -11,6 +11,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/carrinho',
+    name: 'carrinho',
+    component: () => import('../views/Carrinho/Carrinho.vue'),
+  },
+  {
     path: '/camisa',
     name: 'buyTshirt',
     component: () => import('../views/Camisa/Camisa.vue'),
@@ -18,7 +23,7 @@ const routes = [
   {
     path: '/camisa/:id',
     name: 'camisaSelecionada',
-    component: () => import('../views/Buy/Buy.vue'),
+    component: () => import('../views/CompraCamisa/CompraCamisa.vue'),
   }
 ]
 
