@@ -1,10 +1,10 @@
 <template>
   <div class="carrinho">
     <h1 class="aviso" v-show="carrinhoVazio">Nenhum item adicionado</h1>
-    <div class="container" v-for="item in items" :key="item.id">
+    <div class="container" v-for="(item,index) in items" :key="item.id">
       <div class="cardInfo">
         <img :src="item.image" :alt="item.nome">
-
+        
         <div class="descricao">
           <h1>{{ item.nome }}</h1>
           <p>Cor: Preta  - Tamanho: {{ item.tamanhoSelecionado }} </p>          
@@ -13,12 +13,11 @@
         <div class="preco">
           <h1>R$ {{ item.preco }}</h1>          
         </div>
-        
       </div>
       <hr>
-
+      
       <div class="cardAction">
-        <button @click="removerItem( item.id )" >Excluir</button>
+        <button @click="removerItem( index )" >Excluir</button>
       </div>
       
     </div>

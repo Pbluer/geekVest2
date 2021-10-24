@@ -1,7 +1,9 @@
 <template>
   <div class="buy">
 
-    <v-alert type="success" icon="mdi-cart-plus" class="alerta animate__animated animate__fadeInRight" v-show="alert"> Item adicionado </v-alert>
+    <v-alert :type="alert.type" :icon="alert.icon" class="alerta animate__animated animate__fadeInRight" v-show="alert.active"> {{ alert.mensagem }} </v-alert>
+
+    <!-- <v-alert type="error" class="alerta animate__animated animate__fadeInRight" v-show="alertError"> Selecione um tamhno </v-alert> -->
 
     <div class="container">
       <h1> {{ item.nome }} </h1>
@@ -69,7 +71,13 @@ export default {
       quantidade: null
     },
     tamanhoSelecionado: null,
-    alert: false
+    alert:{
+      active: false,
+      type: null,
+      mensagem: null,
+      icon: null
+    },
+
   }),
   methods: {
     carregaItems(){
@@ -94,11 +102,26 @@ export default {
         tamanhoSelecionado: this.tamanhoSelecionado,
         quantidade: this.quantidade  
       }
+
+      if( this.tamanhoSelecionado === null ){
+        this.alert.active = true
+        this.alert.type = 'warning'
+        this.alert.mensagem = 'É necessário escolher um tamanho'
+        this.alert.icon = null
+        
+        setTimeout(() => { this.alert.active = false }, 2000 )
+        return
+      }
+
       carrinho.commit('novoItem', item )
       
-      this.alert = true  
+      this.alert.active = true  
+      this.alert.type = 'success'
+      this.alert.mensagem = 'Item adicionado'
+      this.alert.icon = 'mdi-cart-plus'
       setTimeout(() => { this.alert = false }, 2000 )
-
+     
+      setTimeout(() => {  this.$router.go(-1) }, 2000 )
     }
   }
 }

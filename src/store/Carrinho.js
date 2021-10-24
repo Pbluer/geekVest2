@@ -9,16 +9,14 @@ const carrinho = new Vuex.Store({
     ],    
   },
   getters: {
-    getItem: ( state ) => (id) =>{
-      return state.items.filter( item => item.id === id ? item : '')
-    }
   },
   mutations: {
     novoItem( state, item ){
+      
       state.carrinho.push( item );
     },
-    removerItem( state, id ){
-      state.carrinho.splice(  state.carrinho.indexOf(id), 1 )
+    removerItem( state, index ){
+      state.carrinho.splice( index , 1 )
     }
   },
   actions: {
