@@ -4,11 +4,9 @@
       <router-link to="/">
         <img  src="@/assets/logo.png" alt="GeekVest" id="logo" />
       </router-link>
-      <div class="nav">    
-                  
+      <div class="nav">                  
                 
       <router-link to="/carrinho" class="carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
-          
 
         <ul class="menuDesktop">
           <li><router-link to="/">Inicio</router-link></li>

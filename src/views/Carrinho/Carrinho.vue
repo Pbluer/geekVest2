@@ -1,26 +1,32 @@
 <template>
   <div class="carrinho">
     <h1 class="aviso" v-show="carrinhoVazio">Nenhum item adicionado</h1>
-    <div class="container" v-for="(item,index) in items" :key="item.id">
-      <div class="cardInfo">
-        <img :src="item.image" :alt="item.nome">
-        
-        <div class="descricao">
-          <h1>{{ item.nome }}</h1>
-          <p>Cor: Preta  - Tamanho: {{ item.tamanhoSelecionado }} </p>          
-        </div>
+    <div class="container" >
+      <div class="cardContainer" v-for="(item,index) in items" :key="item.id">
+        <div class="cardInfo">
+          <img :src="item.image" :alt="item.nome">
+          
+          <div class="descricao">
+            <h1>{{ item.nome }}</h1>
+            <p>Cor: Preta  - Tamanho: {{ item.tamanhoSelecionado }} </p>          
+          </div>
 
-        <div class="preco">
-          <h1>R$ {{ item.preco }}</h1>          
+          <div class="preco">
+            <h1>R$ {{ item.preco }}</h1>          
+          </div>
+        </div>
+        <hr>        
+        <div class="cardAction">
+          <button @click="removerItem( index )" >Excluir</button>
         </div>
       </div>
-      <hr>
       
-      <div class="cardAction">
-        <button @click="removerItem( index )" >Excluir</button>
-      </div>
       
     </div>
+    <div class="finalizarPedido" v-show="!carrinhoVazio">
+      <button @click="finalizarPedido()">Finalizar pedido</button>      
+    </div>
+    
   </div>
 </template>
 
@@ -47,7 +53,10 @@ export default {
     removerItem( id ){
       carrinho.commit('removerItem', id )
       this.carregaItems()
-    } 
+    },
+    finalizarPedido(){
+      this.$router.push('finalizarPedido')
+    }
   }
 }
 </script>
@@ -61,6 +70,9 @@ export default {
   }
 
   .container {
+    padding-bottom: 50px;
+  }
+  .cardContainer {
     padding: 20px 10px;
 
     .cardInfo {
@@ -133,6 +145,22 @@ export default {
 
     }
 
+  }
+
+  .finalizarPedido  {
+    width: 80vw;
+    height: 50px;
+    margin: 0 10%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 15px 15px 0 0 ;
+    background-color: #fff;
+    box-shadow: 0 0 3px #afafaf75;
+    border-top: 2px solid #afafaf75;
+    z-index: 1;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
   }
 
 </style>

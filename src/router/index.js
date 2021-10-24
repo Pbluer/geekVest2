@@ -16,6 +16,11 @@ const routes = [
     component: () => import('../views/Carrinho/Carrinho.vue'),
   },
   {
+    path: '/finalizarPedido',
+    name: 'finalizarPedido',
+    component: () => import('../views/FinalizarPedido/FinalizarPedido.vue'),
+  },
+  {
     path: '/camisa',
     name: 'buyTshirt',
     component: () => import('../views/Camisa/Camisa.vue'),
