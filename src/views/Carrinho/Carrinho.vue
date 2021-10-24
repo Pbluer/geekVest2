@@ -1,51 +1,84 @@
 <template>
   <div class="carrinho">
-    <div class="container">
-      <div class="card">
-        <img src="img/camisa/camisa-00001.jpg" alt="#">
+    <h1 class="aviso" v-show="carrinhoVazio">Nenhum item adicionado</h1>
+    <div class="container" v-for="item in items" :key="item.id">
+      <div class="cardInfo">
+        <img :src="item.image" :alt="item.nome">
 
         <div class="descricao">
-          <h1>Camisa Marvel</h1>
-          <p>Tamanho: P </p>
-          
+          <h1>{{ item.nome }}</h1>
+          <p>Cor: Preta  - Tamanho: {{ item.tamanhoSelecionado }} </p>          
         </div>
 
         <div class="preco">
-          <h1>R$ 10,50</h1>
-          <h4>ou 2x de R$ 5,25</h4>
+          <h1>R$ {{ item.preco }}</h1>          
         </div>
         
       </div>
-        <button> X </button>
+      <hr>
+
+      <div class="cardAction">
+        <button @click="removerItem( item.id )" >Excluir</button>
+      </div>
+      
     </div>
   </div>
 </template>
 
 <script>
+import carrinho from '@/store/Carrinho.js' 
+
 export default {
   name: 'carrinho',
+  beforeMount(){
+    this.carregaItems()
+  },
   data: () => ({
-    items:[]
+    items:[],
+    carrinhoVazio: false
   }),
   methods: {
+    carregaItems(){
+      const item = carrinho.state.carrinho
+     
+      item.length === 0 ? this.carrinhoVazio = true : false
 
+      this.items = carrinho.state.carrinho
+    },
+    removerItem( id ){
+      carrinho.commit('removerItem', id )
+      this.carregaItems()
+    } 
   }
 }
 </script>
 
 <style lang="less" scoped>
 
+  .aviso {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
   .container {
     padding: 20px 10px;
 
-    .card {
+    .cardInfo {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #1b2a5b;
+      background: rgba( 255, 255, 255, 0.25 );
+      box-shadow: 0 8px 32px 0 rgba(218, 185, 190, 0.37);
+      backdrop-filter: blur( 12.5px );
+      border-radius: 10px;
+      border: 1px solid #afafaf75;
+      margin-bottom: 5px;
+      padding: 0 3px;
 
       img {
         width: 20%;
+        padding: 5px;
       }
 
       .descricao {
@@ -81,6 +114,23 @@ export default {
         border-radius: 5px;
         color: #fff;
       }
+
+    }
+
+    hr {
+      color: #1b2a5b;
+      margin-bottom: 5px;
+    }
+
+    .cardAction {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba( 255, 255, 255, 0.25 );
+      box-shadow: 0 8px 32px 0 rgba(218, 185, 190, 0.37);
+      backdrop-filter: blur( 12.5px );
+      border-radius: 10px;
+      border: 1px solid #afafaf75;
 
     }
 

@@ -15,7 +15,8 @@ const allShirt = new Vuex.Store({
         pequenaDescricao: 'Camisa Marvel de poliéste e algodão',
         descricao: 'Camisa marvel de poliéste e algodão',
         link:'camisaSelecionada',
-        size: ['P','M','G']
+        tamanho: ['P','M','G'],
+        estoque: 8
       },
       {
         id:'00002',
@@ -26,7 +27,8 @@ const allShirt = new Vuex.Store({
         pequenaDescricao: 'Description',
         descricao: 'Description',
         link:'camisaSelecionada',
-        size: ['P','M','G']
+        tamanho: ['P','M','G'],
+        estoque: 5        
       },
       {
         id:'00003',
@@ -37,7 +39,8 @@ const allShirt = new Vuex.Store({
         pequenaDescricao: 'Description',
         descricao: 'Description',
         link:'camisaSelecionada',
-        size: ['P','M','G']
+        tamanho: ['P','M','G'],
+        estoque: 4
       },
       {
         id:'00004',
@@ -48,7 +51,8 @@ const allShirt = new Vuex.Store({
         pequenaDescricao: 'Description',
         fullDescription: 'Description',
         link:'camisaSelecionada',
-        size: ['P','M','G']
+        tamanho: ['P','M','G'],
+        estoque: 6
       },
     ],    
   },

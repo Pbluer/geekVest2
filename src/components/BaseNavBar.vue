@@ -19,8 +19,7 @@
 
         <v-navigation-drawer class="menuMobile" v-model="drawer" absolute temporary dark>
           <v-list nav dense>
-            <v-list-item-group v-model="group">
-             
+            <v-list-item-group v-model="group">            
 
               <v-list-item>            
                 <v-list-item-icon>

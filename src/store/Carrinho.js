@@ -16,6 +16,9 @@ const carrinho = new Vuex.Store({
   mutations: {
     novoItem( state, item ){
       state.carrinho.push( item );
+    },
+    removerItem( state, id ){
+      state.carrinho.splice(  state.carrinho.indexOf(id), 1 )
     }
   },
   actions: {
