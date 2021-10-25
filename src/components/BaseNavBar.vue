@@ -6,7 +6,7 @@
       </router-link>
       <div class="nav">                  
                 
-      <router-link to="/carrinho" class="carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
+        <router-link to="/carrinho" class="carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
 
         <ul class="menuDesktop">
           <li><router-link to="/">Inicio</router-link></li>
@@ -19,7 +19,7 @@
           <v-list nav dense>
             <v-list-item-group v-model="group">            
 
-              <v-list-item>            
+              <v-list-item>
                 <v-list-item-icon>
                   <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" scoped >
 .navBar {
   display: flex;
   align-items: center;
@@ -142,5 +142,6 @@ export default {
       display: none;
     }
   }
+
 }
 </style>

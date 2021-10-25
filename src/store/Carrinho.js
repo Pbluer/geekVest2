@@ -17,6 +17,9 @@ const carrinho = new Vuex.Store({
     },
     removerItem( state, index ){
       state.carrinho.splice( index , 1 )
+    },
+    limparCarrinho( state ){
+      state.carrinho.remove()
     }
   },
   actions: {
