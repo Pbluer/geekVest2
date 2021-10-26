@@ -8,7 +8,7 @@
 
       <img :src="item.image" :alt=" item.nome ">
 
-      <p id="quantidade">Quantidade: {{ item.quantidade }}</p>
+      <p id="quantidade" v-if="item.quantidade">Quantidade: {{ item.quantidade }}</p>
 
       <div class="primeiraInfo">
         <h3>R$ {{item.preco }} <span>ou {{ item.parcela }}</span> </h3>

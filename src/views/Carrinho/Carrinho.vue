@@ -63,6 +63,10 @@ export default {
 
 <style lang="less" scoped>
 
+  .carrinho {
+    height: 99vh;
+  }
+
   .aviso {
     margin-top: 100px;
     text-align: center;
@@ -72,6 +76,8 @@ export default {
   .container {
     padding-bottom: 50px;
   }
+
+
   .cardContainer {
     padding: 20px 10px;
 
@@ -101,6 +107,7 @@ export default {
 
         p {
           margin: 0;
+          font-size: .8rem;
         }
       }
 
@@ -151,10 +158,11 @@ export default {
     width: 80vw;
     height: 50px;
     margin: 0 10%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     border-radius: 15px 15px 0 0 ;
-    background-color: #fff;
+    background-color: #1b2a5b;
+    color: #fff;
     box-shadow: 0 0 3px #afafaf75;
     border-top: 2px solid #afafaf75;
     z-index: 1;
