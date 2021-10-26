@@ -89,5 +89,14 @@ export default {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .destaque {
+    margin-bottom: 20px;
+    .grid {
+      display: flex !important;
+      gap: 20px 40px !important;
+    }
+  }
+}
 
 </style>

@@ -10,23 +10,25 @@
 
       <p id="quantidade" v-if="item.quantidade">Quantidade: {{ item.quantidade }}</p>
 
-      <div class="primeiraInfo">
-        <h3>R$ {{item.preco }} <span>ou {{ item.parcela }}</span> </h3>
-      </div>
+      <div class="informacao">
+        <div class="primeiraInfo">
+          <h3>R$ {{item.preco }} <span>ou {{ item.parcela }}</span> </h3>
+        </div>
+        
+        <div class="containerTamanho">
+          <h2>Tamanho:</h2>        
+          <div v-for="size in item.tamanho" :key="size">
+            <input type="radio" :id="size" :value="size" v-model="tamanhoSelecionado">                 
+            <label :for="size"> {{size}}</label>
+          </div>          
+        </div>
       
-      <div class="containerTamanho">
-        <h2>Tamanho:</h2>        
-        <div v-for="size in item.tamanho" :key="size">
-          <input type="radio" :id="size" :value="size" v-model="tamanhoSelecionado">                 
-          <label :for="size"> {{size}}</label>
-        </div>          
-      </div>
-     
-      <div class="segundaInfo">
-        <button id="carrinho" @click="adicionarNoCarrinho">
-          <v-icon>mdi-cart-plus</v-icon>
-        </button>
-        <button id="descricao" @click=" descricaoMobile = !descricaoMobile " > Descrição </button>
+        <div class="segundaInfo">
+          <button id="carrinho" @click="adicionarNoCarrinho">
+            <v-icon>mdi-cart-plus</v-icon>
+          </button>
+          <button id="descricao" @click=" descricaoMobile = !descricaoMobile " > Descrição </button>
+        </div>
       </div>
 
       <v-bottom-sheet v-model="descricaoMobile" id="descricaoMobile">
@@ -273,4 +275,14 @@ export default {
     }
 
   }
+
+  @media screen and (min-width: 1024px) {
+      .container {
+      
+      img {
+        width: 20%;
+      }
+
+    }
+}
 </style>

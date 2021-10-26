@@ -4,15 +4,17 @@
       <router-link to="/">
         <img  src="@/assets/logo.png" alt="GeekVest" id="logo" />
       </router-link>
+      
       <div class="nav">                  
                 
-        <router-link to="/carrinho" class="carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
+        <router-link to="/carrinho" class="carrinhoMobile"> <v-icon>mdi-cart-variant</v-icon> </router-link>
 
         <ul class="menuDesktop">
           <li><router-link to="/">Inicio</router-link></li>
-          <li><router-link to="/">Camisa</router-link></li>
-          <li><router-link to="/">Caneca</router-link></li>          
-          <li><router-link to="/">Chaveiro</router-link></li>          
+          <li><router-link to="/camisa">Camisa</router-link></li>
+          <li class="carrinhoDesktop">
+            <router-link to="/carrinho"> <v-icon>mdi-cart-variant</v-icon> </router-link>
+          </li>
         </ul>
 
         <v-navigation-drawer class="menuMobile" v-model="drawer" absolute temporary dark>
@@ -60,16 +62,16 @@ export default {
   display: flex;
   align-items: center;
   background-color: #ed0022;
-  height: 100px;
+  height: 80px;
   justify-content: space-between;
   padding: 0 20px;
   border-bottom: 8px solid #1b2a5b;
 
   #logo {
-    width: 80px;
+    width: 50px;
   }
 
-  .carrinho {
+  .carrinhoMobile {
     color: white;
     text-decoration: none;
 
@@ -79,13 +81,14 @@ export default {
   }
 
   button {
-    display: none;
+    display: block;
+    color: #fff;
+    font-size: 30px;
   }
 }
 
 .menuMobile {
-  display: none;
-
+  display: block;
  
   a {
     text-decoration: none;
@@ -95,7 +98,7 @@ export default {
 }
 
 .menuDesktop {
-  display: flex;
+  display: none;
   list-style-type: none;
 
   li {
@@ -119,27 +122,44 @@ export default {
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (min-width: 1024px) {
 
   .navBar {
-
-    height: 80px;
+    height: 100px;
 
     #logo {
-      width: 50px;
+      width: 13%;
+    }
+    
+    .carrinhoMobile {
+      display: none;
+    }
+
+    .carrinho{
+      color: #1b2a5b;
     }
     
     button {
-      display: block;
-      color: #fff;
-      font-size: 30px;
+      display: none;
     }
 
     .menuMobile {
-      display: block;
+      display: none;
     }
     .menuDesktop {
-      display: none;
+      display: flex;
+
+      .carrinhoDesktop {
+        
+        a {
+          background-color: #1b2a5b;
+        }
+
+        i {
+          color: #fff;
+        }
+      }
+
     }
   }
 

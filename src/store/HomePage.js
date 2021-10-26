@@ -29,7 +29,7 @@ const homePage = new Vuex.Store({
       {
         id:'00003',
         image:'img/camisa/camisa-00003.jpg',
-        name: 'Name',
+        nome: 'Camisa Avangers Infinity',
         price: '30,20',
         description: 'Description',
         tineDescription: 'Description',
@@ -38,7 +38,7 @@ const homePage = new Vuex.Store({
       {
         id:'00004',
         image:'img/camisa/camisa-00004.jpg',
-        name: 'Name',
+        nome: 'Camisa Thor',
         price: '40,20',
         description: 'Description',
         tineDescription: 'Description',

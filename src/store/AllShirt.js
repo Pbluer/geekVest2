@@ -31,7 +31,7 @@ const allShirt = new Vuex.Store({
       {
         id:'00003',
         image:'img/camisa/camisa-00003.jpg',
-        nome: 'nome',
+        nome: 'Camisa Avangers Infinity',
         preco: '30,20',
         parcela: '2x R$15,10' ,
         pequenaDescricao: 'Description',
@@ -42,7 +42,7 @@ const allShirt = new Vuex.Store({
       {
         id:'00004',
         image:'img/camisa/camisa-00004.jpg',
-        nome: 'Name',
+        nome: 'Camisa Thor',
         preco: '40,20',
         parcela: '2x R$20,10' ,
         pequenaDescricao: 'Description',

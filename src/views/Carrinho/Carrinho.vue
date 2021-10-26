@@ -21,7 +21,6 @@
         </div>
       </div>
       
-      
     </div>
     <div class="finalizarPedido" v-show="!carrinhoVazio">
       <button @click="finalizarPedido()">Finalizar pedido</button>      
@@ -76,7 +75,6 @@ export default {
   .container {
     padding-bottom: 50px;
   }
-
 
   .cardContainer {
     padding: 20px 10px;
@@ -169,6 +167,50 @@ export default {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .cardContainer {     
+      margin: 0 auto;
+
+      .cardInfo {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 350px;
+        
+        img { width: 80% !important; }
+
+      }
+
+      hr { width: 300px; }
+
+      .cardAction { 
+        width: 300px;
+        height: 50px;
+        &:hover{
+          background-color: #ED0022;
+          color: #fff;
+        }
+      }
+    }
+
+    .finalizarPedido {
+      width: 40vw;
+      margin: 0 30%;
+      
+      &:hover {
+        box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.459);
+        border: nones;
+      }
+
+    }
   }
 
 </style>
