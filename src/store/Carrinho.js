@@ -11,8 +11,7 @@ const carrinho = new Vuex.Store({
   getters: {
   },
   mutations: {
-    novoItem( state, item ){
-      
+    novoItem( state, item ){      
       state.carrinho.push( item );
     },
     removerItem( state, index ){

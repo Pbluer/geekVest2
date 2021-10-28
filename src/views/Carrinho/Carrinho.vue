@@ -1,7 +1,8 @@
 <template>
   <div class="carrinho">
     <h1 class="aviso" v-show="carrinhoVazio">Nenhum item adicionado</h1>
-    <div class="container" >
+
+    <div class="container" v-show="!carrinhoVazio">
       <div class="cardContainer" v-for="(item,index) in items" :key="item.id">
         <div class="cardInfo">
           <img :src="item.image" :alt="item.nome">
@@ -25,13 +26,18 @@
       </div>
     </div>
     <div class="finalizarPedido" v-show="!carrinhoVazio">
-      <button @click="finalizarPedido()">Finalizar pedido</button>      
+      <div class="valorTotal">
+        <h1>Total</h1>
+        <h2>R$ {{ precoTotal }}</h2>
+      </div>
+      <button @click="valorTotalTeste">Finalizar pedido</button>      
     </div>
     
   </div>
 </template>
 
 <script>
+
 import carrinho from '@/store/Carrinho.js' 
 
 export default {
@@ -41,6 +47,7 @@ export default {
   },
   data: () => ({
     items:[],
+    valorTotal: 0,
     carrinhoVazio: false
   }),
   methods: {
@@ -57,15 +64,21 @@ export default {
     },
     finalizarPedido(){
       this.$router.push('finalizarPedido')
+    },
+    valorTotalTeste(){
+      this.items.forEach( e => console.log(e.preco) )   
     }
   },
   computed: {
-    precoTotal: () => {
-     /*  let valor = 0;
-      this.items.forEach( preco => {
-        
-      }); */
-     }
+    precoTotal(){ 
+      let total = 0
+
+      this.items.forEach( e => {
+        total += parseInt(e.preco)         
+       
+      } )      
+      return total
+    }
   }
 }
 </script>
@@ -176,7 +189,40 @@ export default {
     z-index: 1;
     margin-top: 50px;
     display: flex;
-    justify-content: center;
+   
+    button {
+      width: 100%;
+      text-align: center;
+      &:hover {
+        background-color: #394b87;
+        border-radius: 0 15px 0 0;
+      }
+
+    }
+
+    .valorTotal {
+      background-color:transparent;
+      color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      border-right: 2px solid #fff;
+      flex-direction: column;
+
+      h1 {
+        color: #fff;
+      }
+
+      h2 {
+        border-radius: 15px 0;
+        font-size: 1.3rem;
+        color: #fff;
+        text-align: center;
+      }
+
+    }
+
   }
 
   @media screen and (min-width: 1024px) {
