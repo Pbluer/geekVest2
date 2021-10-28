@@ -61,10 +61,10 @@ export default {
   },
   computed: {
     precoTotal: () => {
-      let valor = 0;
+     /*  let valor = 0;
       this.items.forEach( preco => {
         
-      });
+      }); */
      }
   }
 }
