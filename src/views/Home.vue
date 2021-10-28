@@ -7,8 +7,8 @@
           <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in featuredItem" :key="item.nome">            
             <h1> {{ item.nome }} </h1>
             <img :src="item.image" :alt="item.name">
-            <h3> R$ {{ item.price }} </h3>
-            <p>{{ item.tineDescription }}</p>                 
+            <h3> {{ item.preco }} </h3>
+            <p>{{ item.pequenaDescricao }}</p>                 
           </router-link>
         </div>
       </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import homePage from '@/store/HomePage.js' 
+  import homePage from '@/store/HomePage.js'
 
   export default {
     name: 'Home',

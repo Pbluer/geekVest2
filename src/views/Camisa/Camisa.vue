@@ -5,7 +5,7 @@
         <div class="grid">
           <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in allShirt" :key="item.nome">            
             <img :src="item.image" :alt="item.nome">
-            <h3> R$ {{ item.preco }} </h3>
+           <h3 v-money > {{ item.preco }} </h3>
             <p>{{ item.pequenaDescricao }}</p>                 
           </router-link>
         </div>
