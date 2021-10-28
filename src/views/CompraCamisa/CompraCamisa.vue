@@ -143,6 +143,7 @@ export default {
     h1 {
       font-size: 2rem;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     img {
@@ -160,7 +161,7 @@ export default {
     }
 
     .primeiraInfo {
-      margin-top: 5px;
+      margin-top: 10px;
       display: flex;
       justify-content: center;
       width: 300px;
@@ -197,6 +198,13 @@ export default {
 
         label {
           margin: 20px;
+          font-size: 1rem;
+          background-color: #d3d3d3;
+          color: #fff;
+          border-radius: 15px;
+          padding: 2px 6px;
+          color: #000;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.281);
         }
         
         input[type="radio"] { display: none;}
@@ -204,9 +212,6 @@ export default {
         input[type="radio"]:checked+label{
           background-color: #ED0022;
           color: #fff;
-          border-radius: 15px;
-          padding: 2px 6px;
-          box-shadow: 0 0 3px rgba(0, 0, 0, 0.281);
         }
 
       }

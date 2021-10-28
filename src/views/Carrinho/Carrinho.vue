@@ -16,11 +16,13 @@
           </div>
         </div>
         <hr>        
-        <div class="cardAction">
-          <button @click="removerItem( index )" >Excluir</button>
+        <div class="cardAction" @click="removerItem( index )">
+          <button >Excluir</button>
         </div>
       </div>
-      
+      <div class="precoTotal">
+        
+      </div>
     </div>
     <div class="finalizarPedido" v-show="!carrinhoVazio">
       <button @click="finalizarPedido()">Finalizar pedido</button>      
@@ -56,6 +58,14 @@ export default {
     finalizarPedido(){
       this.$router.push('finalizarPedido')
     }
+  },
+  computed: {
+    precoTotal: () => {
+      let valor = 0;
+      this.items.forEach( preco => {
+        
+      });
+     }
   }
 }
 </script>

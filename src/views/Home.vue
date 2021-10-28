@@ -5,6 +5,7 @@
         <h1>DESTAQUE</h1>
         <div class="grid">
           <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in featuredItem" :key="item.nome">            
+            <h1> {{ item.nome }} </h1>
             <img :src="item.image" :alt="item.name">
             <h3> R$ {{ item.price }} </h3>
             <p>{{ item.tineDescription }}</p>                 
@@ -39,6 +40,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 
   .destaque {
     margin: 20px 0 0 0;
@@ -57,18 +59,26 @@
       margin-top: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px 15px;
+      gap: 20px 15px;     
 
       .itemCard{
         width: 150px;
-        height: 250px;
+        height: 280px;
         border: 1px solid rgba(109, 109, 109, 0.363);
         border-radius: 15px;
-        padding: 5px 0;
+        padding: 0;
         text-align: center;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.178);
         text-decoration: none;
         color: black;
+
+        h1 {
+          background-color: #1b2a5b;
+          font-size: 15px;
+          color: #fff;
+          border-radius: 15px 15px 0 0;
+          margin-bottom: 10px;
+        }
 
         img {
           width: 130px;
