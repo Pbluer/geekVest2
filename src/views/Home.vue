@@ -7,7 +7,7 @@
           <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in featuredItem" :key="item.nome">            
             <h1> {{ item.nome }} </h1>
             <img :src="item.image" :alt="item.name">
-            <h3> {{ item.preco }} </h3>
+            <h3> {{ precoFormatado(item.preco) }} </h3>
             <p>{{ item.pequenaDescricao }}</p>                 
           </router-link>
         </div>

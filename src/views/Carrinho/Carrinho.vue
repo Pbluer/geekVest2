@@ -12,7 +12,7 @@
           </div>
 
           <div class="preco">
-            <h1>R$ {{ item.preco }}</h1>          
+            <h1>{{ precoFormatado(item.preco) }}</h1>          
           </div>
         </div>
         <hr>        
@@ -20,12 +20,10 @@
           <button >Excluir</button>
         </div>
       </div>
-      <div class="precoTotal">
-        
-      </div>
+      
     </div>
     <div class="finalizarPedido" v-show="!carrinhoVazio">
-      <button @click="finalizarPedido()">Finalizar pedido</button>      
+      <button @click="finalizaPedido()">Finalizar pedido</button>      
     </div>
     
   </div>
@@ -55,16 +53,17 @@ export default {
       carrinho.commit('removerItem', id )
       this.carregaItems()
     },
-    finalizarPedido(){
+    finalizaPedido(){
       this.$router.push('finalizarPedido')
     }
   },
   computed: {
     precoTotal: () => {
-     /*  let valor = 0;
-      this.items.forEach( preco => {
-        
-      }); */
+      let valor = 0;
+      carrinho.state.carrinho.forEach(element => {
+        valor += parseFloat(element.preco)
+      })     
+      return valor;
      }
   }
 }

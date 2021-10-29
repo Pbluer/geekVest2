@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import Money from 'vuejs-money'
+import './assets/js/GlobalFunction.js'
 
 import './registerServiceWorker'
 import 'animate.css'
