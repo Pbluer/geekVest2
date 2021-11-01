@@ -21,19 +21,23 @@
           <v-list nav dense>
             <v-list-item-group v-model="group">            
 
-              <v-list-item>
-                <v-list-item-icon>
-                  <v-icon>mdi-home</v-icon>
-                </v-list-item-icon>
-                <router-link to="/">Inicio</router-link>
-              </v-list-item>
+              <router-link to="/">
+                <v-list-item>
+                  <v-list-item-icon>
+                    <v-icon>mdi-home</v-icon>
+                  </v-list-item-icon>
+                  Inicio
+                </v-list-item>
+              </router-link>
 
-              <v-list-item>
-                <v-list-item-icon>
-                  <v-icon> mdi-tshirt-crew</v-icon>
-                </v-list-item-icon>
-                 <router-link to="camisa">Camisa</router-link>
-              </v-list-item>
+              <router-link to="camisa">
+                <v-list-item>
+                  <v-list-item-icon>
+                    <v-icon> mdi-tshirt-crew</v-icon>
+                  </v-list-item-icon>
+                  Camisa
+                </v-list-item>
+              </router-link>
             </v-list-item-group>
           </v-list>
         </v-navigation-drawer>

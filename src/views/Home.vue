@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home animate__animated animate__fadeIn">
     <div class="container">
       <div class="destaque">
         <h1>DESTAQUE</h1>
@@ -90,6 +90,7 @@
           border-top: 2px solid #1b2a5b;
           border-bottom: 2px solid #1b2a5b;
           color: rgb(59, 59, 59);
+          color: green;
         }
 
 

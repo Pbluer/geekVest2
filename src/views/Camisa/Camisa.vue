@@ -1,10 +1,10 @@
 <template>
- <div class="camisa">
+ <div class="camisa animate__animated animate__fadeIn">
     <div class="container">
       <div class="destaque">
         <div class="grid">
           <router-link :to="{ name: item.link, params: { id: item.id } }" class="itemCard" v-for="item in allShirt" :key="item.nome">            
-            <img :src="item.image" :alt="item.nome">
+            <img :src="item.image" :alt="item.nome" loading="lazy">
             <h3>{{ precoFormatado(item.preco) }} </h3>
             <p>{{ item.pequenaDescricao }}</p>                 
           </router-link>
@@ -80,6 +80,7 @@ export default {
           border-top: 2px solid #1b2a5b;
           border-bottom: 2px solid #1b2a5b;
           color: rgb(59, 59, 59);
+          color: green;
         }
 
 

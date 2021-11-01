@@ -9,6 +9,11 @@ const carrinho = new Vuex.Store({
     ],    
   },
   getters: {
+    valorTotal( state ){
+      let valorTotal = null
+      state.carrinho.foreach( e => valorTotal += e.preco )
+      return valorTotal
+    }
   },
   mutations: {
     novoItem( state, item ){      

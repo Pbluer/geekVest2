@@ -1,12 +1,12 @@
 <template>
-  <div class="buy">
+  <div class="camisaSelecionada animate__animated animate__fadeIn">
 
     <v-alert :type="alert.type" :icon="alert.icon" class="alerta animate__animated animate__fadeInRight" v-show="alert.active"> {{ alert.mensagem }} </v-alert>
 
     <div class="container">
       <h1> {{ item.nome }} </h1>
 
-      <img :src="item.image" :alt=" item.nome ">
+      <img :src="item.image" :alt=" item.nome" loading="lazy">
 
       <p id="quantidade" v-if="item.quantidade">Quantidade: {{ item.quantidade }}</p>
 
@@ -55,7 +55,7 @@ import allShirt from '@/store/AllShirt.js'
 import carrinho from '@/store/Carrinho.js' 
 
 export default {
-  name: 'buy' ,
+  name: 'CamisaSelecionada' ,
   beforeMount(){
     this.carregaItems()
   },
@@ -187,10 +187,11 @@ export default {
     .containerTamanho {
       width: 300px;
       display: flex;
-      padding-right: 5vw ;   
+      padding-right: 5vw ; 
+      align-items: center;  
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         margin-right: 10px;
       }      
       div { 
@@ -198,10 +199,10 @@ export default {
 
         label {
           margin: 20px;
-          font-size: 1rem;
+          font-size: 1.3rem;
           background-color: #d3d3d3;
+          border-radius: 5px;
           color: #fff;
-          border-radius: 15px;
           padding: 2px 6px;
           color: #000;
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.281);

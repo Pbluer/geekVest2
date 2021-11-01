@@ -3,9 +3,9 @@
     <h1 class="aviso" v-show="carrinhoVazio">Nenhum item adicionado</h1>
 
     <div class="container" v-show="!carrinhoVazio">
-      <div class="cardContainer" v-for="(item,index) in items" :key="item.id">
+      <div class="cardContainer animate__animated animate__fadeIn" v-for="(item,index) in items" :key="item.id">
         <div class="cardInfo">
-          <img :src="item.image" :alt="item.nome">
+          <img :src="item.image" :alt="item.nome" loading="lazy">
           
           <div class="descricao">
             <h1>{{ item.nome }}</h1>
@@ -24,6 +24,10 @@
       
     </div>
     <div class="finalizarPedido" v-show="!carrinhoVazio">
+      <div class="valorTotal">
+        <p>Total</p>
+        <h2> {{ precoFormatado(precoTotal) }} </h2>
+      </div>
       <button @click="finalizaPedido()">Finalizar pedido</button>      
     </div>
     
@@ -181,13 +185,13 @@ export default {
     z-index: 1;
     margin-top: 50px;
     display: flex;
+
    
     button {
       width: 100%;
       text-align: center;
       &:hover {
-        background-color: #394b87;
-        border-radius: 0 15px 0 0;
+       text-decoration: underline;
       }
 
     }
@@ -202,8 +206,9 @@ export default {
       border-right: 2px solid #fff;
       flex-direction: column;
 
-      h1 {
+      p {
         color: #fff;
+        margin: 0;
       }
 
       h2 {
@@ -211,6 +216,7 @@ export default {
         font-size: 1.3rem;
         color: #fff;
         text-align: center;
+        margin: 0;
       }
 
     }

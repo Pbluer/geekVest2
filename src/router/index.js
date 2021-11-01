@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/camisa/:id',
     name: 'camisaSelecionada',
-    component: () => import('../views/CompraCamisa/CompraCamisa.vue'),
+    component: () => import('../views/CamisaSelecionada/CamisaSelecionada.vue'),
   }
 ]
 
