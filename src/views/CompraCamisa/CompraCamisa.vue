@@ -12,7 +12,7 @@
 
       <div class="informacao">
         <div class="primeiraInfo">
-          <h3>R$ {{item.preco }} <span>ou {{ item.parcela }}</span> </h3>
+          <h3>{{ precoFormatado(item.preco) }} <span>ou {{ item.parcela }}</span> </h3>
         </div>
         
         <div class="containerTamanho">
